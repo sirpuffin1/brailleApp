@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from 'src/app/models/post';
 
 @Component({
   selector: 'app-button-display',
@@ -66,7 +67,15 @@ export class ButtonDisplayComponent implements OnInit {
   translationType = 'Numbers';
 
   pushToArray(string: string) {
-    this.combinationArray.push(string);
+    // let toggley = "toggleClass" + string
+    // console.log(toggley)
+    if(this.combinationArray.includes(string) ){
+      this.combinationArray = this.combinationArray.filter(s => s != string)
+    } else {
+      this.combinationArray.push(string);
+    }
+
+
   }
 
   displayResult() {
